@@ -7,8 +7,8 @@ import java.util.ArrayList;
  * @author David J. Barnes and Michael Kölling.
  * @version 7.0
  */
-public class Auction
-{
+public class Auction{
+
     // The list of Lots in this auction.
     private ArrayList<Lot> listOfLots;
     // The number that will be given to the next lot entered into this auction.
@@ -101,24 +101,30 @@ public class Auction
             return null;
         }
     }
+    //QUESTION 4
     public ArrayList<Lot> getUnsold(){
         ArrayList<Lot> unsold = new ArrayList<>();
         for (Lot alot : listOfLots){
-            Bid highest = alot.getHighestBid();
-            if highest == null{
-                unsold.add(alot)
+            //Bid highest = alot.getHighestBid();
+            //if (highest == null){
+            if (alot.getHighestBid() == null){
+                unsold.add(alot);
             }
         }
+        return unsold;
     }
     
     // question 3
     public void close(){
-        for (Lot alot : listOfLosts){
+        for (Lot alot : listOfLots){
             Bid highest = alot.getHighestBid();
             if (highest == null){
                 System.out.println("No bidder for this lot");
         } else { 
             System.out.println("The bidder is " + highest.getBidder().getName());
             System.out.println("The value is " + highest.getValue());
+        }
+        }
     }
 }
+
